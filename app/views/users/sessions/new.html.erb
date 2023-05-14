@@ -1,0 +1,19 @@
+<div>
+	<h1>Log In</h1>
+
+	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<%= f.input :phone, required: true, autofocus: true,
+			input_html: { autocomplete: "phone", placeholder: "0123456789" }	%>
+		<%= f.input :password, required: true,
+			input_html: { autocomplete: "password" } %>
+		<% if devise_mapping.rememberable? %>
+			<div class="mb-4 flex">
+				<%= f.input :remember_me, as: :boolean, label: false %>
+				<%= f.label :remember_me %>
+			</div>
+		<% end %>
+		<%= f.button :submit, "Log in", class: "btn-primary" %>
+
+		<%= render "devise/shared/links" %>
+	<% end %>
+</div>

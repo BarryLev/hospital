@@ -1,0 +1,19 @@
+<header>
+  <nav>
+    <div>
+      <%= link_to 'Home', root_path %>
+      <% if !user_signed_in? %>
+        <div>
+          <%= link_to 'Sign in', new_user_session_path %>
+        </div>
+        <div>
+          <%= link_to 'Sign up', new_user_registration_path %>
+        </div>
+      <% else %>
+        <div>
+          <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+</header>

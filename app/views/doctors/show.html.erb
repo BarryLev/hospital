@@ -1,0 +1,7 @@
+<h1><%= @doctor.name %></h1>
+
+<p><strong>Specialty:</strong> <%= @doctor.category.name %></p>
+
+<%# create an action for this %>
+<%= link_to 'Set an appointment' %>
+<%= link_to 'Back', doctors_path %>

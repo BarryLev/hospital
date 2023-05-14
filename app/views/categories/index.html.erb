@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Categories</td>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td>
+        <%= link_to category.name, doctors_path(category_id: category.id) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
