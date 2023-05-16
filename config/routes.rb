@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :categories, only: :index
   resources :users, only: :show
   resources :doctors
+  resources :appointments, only: [:create, :update, :edit]
   resource :profile
 
 end

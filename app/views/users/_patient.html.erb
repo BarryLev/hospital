@@ -6,6 +6,7 @@
     <th>Doctor name</th>
     <th>Active</th>
     <th>Recommendation</th>
+    <th></th>
   </tr>
   <% patient.appointments.includes(:doctor).each do |appointment| %>
     <tr>
@@ -20,6 +21,11 @@
       </td>
       <td>
         <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
+      </td>
+      <td>
+        <% if can?(:update, appointment) && appointment.active %>
+          <%= link_to "Edit", edit_appointment_path(id: appointment.id) %>
+        <% end %>
       </td>
     </tr>
   <% end %>

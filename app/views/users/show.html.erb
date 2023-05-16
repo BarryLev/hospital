@@ -1,7 +1,4 @@
-<h1>My Profile</h1>
-
-<p><strong>Name:</strong> <%= @user.name %></p>
-
+<h2><strong>Name:</strong> <%= @user.name %></h2>
 
 <% if @user.patient? %>
   <%= render "patient", patient: @user %>

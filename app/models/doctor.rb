@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: doctors
+# Table name: users
 #
 #  id                     :bigint           not null, primary key
 #  phone                  :string           default(""), not null
@@ -10,8 +10,9 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string
-#  category_id            :bigint           not null
+#  name                   :string           default("t")
+#  role                   :string           default("Patient")
+#  category_id            :bigint
 #
 class Doctor < User
   has_many :appointments, class_name: Appointment.name, foreign_key: :doctor_id

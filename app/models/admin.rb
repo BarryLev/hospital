@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: admins
+# Table name: users
 #
 #  id                     :bigint           not null, primary key
 #  phone                  :string           default(""), not null
@@ -10,7 +10,9 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string
+#  name                   :string           default("t")
+#  role                   :string           default("Patient")
+#  category_id            :bigint
 #
 class Admin < User
   

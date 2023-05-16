@@ -10,7 +10,9 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string
+#  name                   :string           default("t")
+#  role                   :string           default("Patient")
+#  category_id            :bigint
 #
 class User < ApplicationRecord
   self.inheritance_column = :role

@@ -1,4 +1,4 @@
-<p><strong>Category:</strong> <%= doctor.category.name %></p>
+<h3><strong>Category:</strong> <%= doctor.category.name %></h3>
 
 <p><strong>Appointments:</strong></p>
 
@@ -8,6 +8,7 @@
     <th>Patient name</th>
     <th>Active</th>
     <th>Recommendation</th>
+    <th></th>
   </tr>
   <% doctor.appointments.includes(:patient).each do |appointment| %>
     <tr>
@@ -22,6 +23,9 @@
       </td>
       <td>
         <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_appointment_path(id: appointment.id) if appointment.active %>
       </td>
     </tr>
   <% end %>

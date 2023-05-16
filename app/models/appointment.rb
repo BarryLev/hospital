@@ -4,10 +4,10 @@
 #
 #  id             :bigint           not null, primary key
 #  recommendation :text
-#  active         :boolean
+#  active         :boolean          default(TRUE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  user_id        :bigint
+#  patient_id     :bigint
 #  doctor_id      :bigint
 #
 class Appointment < ApplicationRecord
@@ -15,4 +15,16 @@ class Appointment < ApplicationRecord
   belongs_to :doctor, class_name: Doctor.name, foreign_key: :doctor_id
 
   validates_presence_of :active
+
+  before_update :change_active
+
+  private
+
+  def change_active
+    if recommendation.present?
+      self.active = false
+    elsif
+      self.active = true
+    end
+  end
 end
