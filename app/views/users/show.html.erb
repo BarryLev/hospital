@@ -2,18 +2,9 @@
 
 <p><strong>Name:</strong> <%= @user.name %></p>
 
-<p><strong>Appointments:</strong></p>
 
-<table>
-  <tr>
-    <th>Appointment ID</th>
-    <th>Doctor name</th>
-    <th>Active</th>
-    <th>Recommendation</th>
-  </tr>
-  <% if @user.role == Patient.name %>
-    <%= render "patient", patient: @user %>
-  <% elsif @user.role == Doctor.name %>
-    <%= render "doctor", doctor: @user %>
-  <% end %>
-</table>
+<% if @user.patient? %>
+  <%= render "patient", patient: @user %>
+<% elsif @user.doctor? %>
+  <%= render "doctor", doctor: @user %>
+<% end %>

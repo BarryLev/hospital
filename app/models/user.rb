@@ -30,4 +30,16 @@ class User < ApplicationRecord
   def will_save_change_to_email?
     false
   end
+
+  def patient?
+    role == Patient.name
+  end
+
+  def doctor?
+    role == Doctor.name
+  end
+
+  def admin?
+    role == Admin.name
+  end
 end

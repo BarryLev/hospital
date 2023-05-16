@@ -15,7 +15,7 @@ class DoctorsController < ApplicationController
     @doctor.appointments.build(patient_id: current_user.id)
 
     if @doctor.save
-      redirect_to user_path
+      redirect_to user_path(current_user.id)
     else
       render :show
     end

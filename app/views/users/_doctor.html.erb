@@ -1,18 +1,29 @@
+<p><strong>Category:</strong> <%= doctor.category.name %></p>
 
+<p><strong>Appointments:</strong></p>
 
-<% doctor.appointments.includes(:patient).each do |appointment| %>
+<table>
   <tr>
-    <td>
-      <%= "Appointment##{appointment.id}" %>
-    </td>
-    <td>
-      <%= patient.name %>
-    </td>
-    <td>
-      <%= appointment.active ? "Yes" : "No" %>
-    </td>
-    <td>
-      <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
-    </td>
+    <th>Appointment ID</th>
+    <th>Patient name</th>
+    <th>Active</th>
+    <th>Recommendation</th>
   </tr>
-<% end %>
+  <% doctor.appointments.includes(:patient).each do |appointment| %>
+    <tr>
+      <td>
+        <%= "Appointment##{appointment.id}" %>
+      </td>
+      <td>
+        <%= link_to appointment.patient.name, user_path(appointment.patient.id) %>
+      </td>
+      <td>
+        <%= appointment.active ? "Yes" : "No" %>
+      </td>
+      <td>
+        <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

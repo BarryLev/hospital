@@ -52,3 +52,5 @@ gem "cancancan", "~> 3.5"
 gem "simple_form", "~> 5.2"
 
 gem "activeadmin", "~> 2.13"
+
+gem "sassc-rails", "~> 2.1"

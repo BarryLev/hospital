@@ -3,5 +3,5 @@
 <p><strong>Specialty:</strong> <%= @doctor.category.name %></p>
 
 <%# cancancan, only patient can read %>
-<%= button_to 'Set an appointment', doctor_path, method: :patch %>
+<%= button_to 'Set an appointment', doctor_path, method: :patch if current_user.blank? || current_user.patient? %>
 <%= link_to 'Back', doctors_path %>

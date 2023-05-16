@@ -1,16 +1,26 @@
-<% patient.appointments.includes(:doctor).each do |appointment| %>
+<p><strong>Appointments:</strong></p>
+
+<table>
   <tr>
-    <td>
-      <%= "Appointment##{appointment.id}" %>
-    </td>
-    <td>
-      <%= link_to appointment.doctor.name, doctor_path(appointment.doctor) %>
-    </td>
-    <td>
-      <%= appointment.active ? "Yes" : "No" %>
-    </td>
-    <td>
-      <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
-    </td>
+    <th>Appointment ID</th>
+    <th>Doctor name</th>
+    <th>Active</th>
+    <th>Recommendation</th>
   </tr>
-<% end %>
+  <% patient.appointments.includes(:doctor).each do |appointment| %>
+    <tr>
+      <td>
+        <%= "Appointment##{appointment.id}" %>
+      </td>
+      <td>
+        <%= link_to appointment.doctor.name, doctor_path(appointment.doctor) %>
+      </td>
+      <td>
+        <%= appointment.active ? "Yes" : "No" %>
+      </td>
+      <td>
+        <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
