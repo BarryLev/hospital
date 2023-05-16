@@ -3,16 +3,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  # devise_for :doctors, controllers: {
-  #   sessions: 'doctors/sessions',
-  #   registrations: 'doctors/registrations'    
-  # }
-  # devise_for :admins, controllers: {
-  #   sessions: 'admins/sessions',
-  #   registrations: 'admins/registrations'    
-  # }
   root "home#index"
 
   resources :categories, only: :index
   resources :doctors
+  resource :profile, :user
+
 end

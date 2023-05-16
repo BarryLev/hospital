@@ -13,25 +13,21 @@
 #  name                   :string
 #  category_id            :bigint           not null
 #
-class Doctor < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  has_many :appointments
-  has_many :users, through: :appointments
-
+class Doctor < User
+  has_many :appointments, class_name: Appointment.name, foreign_key: :doctor_id
+  has_many :patients, class_name: Patient.name, through: :appointments
+  
   belongs_to :category
 
-  validates :phone, presence: :true, format: /\A(\+38){0,1}0\d{9}\z/
-  validates_presence_of :name
+  validates_presence_of :category
 
-  # overrided methods email_required? and will_save_change_to_email?
-  # from devise to make phone as login
-  def email_required?
-    false
-  end
+  validate :limit_active_appointments
 
-  def will_save_change_to_email?
-    false
+  private
+
+  def limit_active_appointments
+    limit = 10
+
+    errors.add("Too many active appointments") if appointments.where(active: true).count > limit
   end
 end

@@ -4,6 +4,8 @@
 <p>Get list of our doctors by categories</p>
 <%= link_to "Doctors", categories_path %>
 
-<h2>Profile</h2>
-<p>View your profile</p>
-<%= link_to "Doctors", categories_path %>
+<% if current_user.present? %>
+  <h2>Profile</h2>
+  <p>View your profile</p>
+  <%= link_to "Profile", user_path %>
+<% end %>

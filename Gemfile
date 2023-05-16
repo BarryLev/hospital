@@ -50,3 +50,5 @@ gem "faker", "~> 3.2"
 gem "cancancan", "~> 3.5"
 
 gem "simple_form", "~> 5.2"
+
+gem "activeadmin", "~> 2.13"
