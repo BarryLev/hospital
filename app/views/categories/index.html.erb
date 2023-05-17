@@ -1,12 +1,16 @@
-<table>
-  <tr>
-    <th>Categories</td>
-  </tr>
-  <% @categories.each do |category| %>
+<table class="table w-25 mx-auto">
+  <thead class="bg-light">
     <tr>
-      <td>
-        <%= link_to category.name, doctors_path(category_id: category.id) %>
-      </td>
+      <th scope="col">Categories</td>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td>
+          <%= link_to category.name, doctors_path(category_id: category.id) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

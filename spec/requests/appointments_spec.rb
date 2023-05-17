@@ -15,7 +15,7 @@ RSpec.describe "Appointments", type: :request do
         end.to change(Appointment, :count).by(1)
 
         expect(response).to redirect_to(user_path(patient))
-        # expect(flash[:notice]).to eq("Appointment has been successfully created")
+        expect(flash[:notice]).to eq("Appointment has been successfully created")
       end
     end
 
@@ -26,7 +26,7 @@ RSpec.describe "Appointments", type: :request do
         end.not_to change(Appointment, :count)
 
         expect(response).to redirect_to(root_path)
-        # expect(flash[:notice]).to eq("Appointment has failed create")
+        expect(flash[:alert]).to eq("Appointment has failed create")
       end
     end
   end

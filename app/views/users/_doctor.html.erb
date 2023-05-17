@@ -2,32 +2,36 @@
 
 <p><strong>Appointments:</strong></p>
 
-<table>
-  <tr>
-    <th>Appointment ID</th>
-    <th>Patient name</th>
-    <th>Active</th>
-    <th>Recommendation</th>
-    <th></th>
-  </tr>
-  <% doctor.appointments.includes(:patient).each do |appointment| %>
+<table class="table w-25 mx-auto">
+  <thead class="bg-light">
     <tr>
-      <td>
-        <%= "Appointment##{appointment.id}" %>
-      </td>
-      <td>
-        <%= link_to appointment.patient.name, user_path(appointment.patient.id) %>
-      </td>
-      <td>
-        <%= appointment.active ? "Yes" : "No" %>
-      </td>
-      <td>
-        <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
-      </td>
-      <td>
-        <%= link_to "Edit", edit_appointment_path(id: appointment.id) if appointment.active %>
-      </td>
+      <th scope="col">Appointment ID</th>
+      <th scope="col">Patient name</th>
+      <th scope="col">Active</th>
+      <th scope="col">Recommendation</th>
+      <th scope="col"></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% doctor.appointments.includes(:patient).each do |appointment| %>
+      <tr>
+        <td scope="row">
+          <%= "Appointment##{appointment.id}" %>
+        </td>
+        <td>
+          <%= link_to appointment.patient.name, user_path(appointment.patient.id) %>
+        </td>
+        <td>
+          <%= appointment.active ? "Yes" : "No" %>
+        </td>
+        <td>
+          <%= appointment.recommendation.present? ? appointment.recommendation : "Empty" %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_appointment_path(id: appointment.id) if appointment.active %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 

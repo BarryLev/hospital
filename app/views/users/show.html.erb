@@ -1,7 +1,12 @@
-<h2><strong>Name:</strong> <%= @user.name %></h2>
+<section>
+  <h2><strong>Name:</strong> <%= @user.name %></h2>
 
-<% if @user.patient? %>
-  <%= render "patient", patient: @user %>
-<% elsif @user.doctor? %>
-  <%= render "doctor", doctor: @user %>
-<% end %>
+  <% if @user.patient? %>
+    <%= render "patient", patient: @user %>
+  <% elsif @user.doctor? %>
+    <%= render "doctor", doctor: @user %>
+  <% end %>
+</section>
+</section>
+  <%# Add photo %>
+</section>

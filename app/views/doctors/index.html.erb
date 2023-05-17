@@ -1,12 +1,16 @@
-<table>
-  <tr>
-    <th>Doctors</th>
-  </tr>
-  <% @doctors.each do |doctor| %>
+<table class="table w-25 mx-auto">
+  <thead class="bg-light">
     <tr>
-      <td>
-        <%= link_to doctor.name, doctor_path(doctor) %>
-      </td>
+      <th scope="col">Doctors</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td>
+          <%= link_to doctor.name, doctor_path(doctor) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

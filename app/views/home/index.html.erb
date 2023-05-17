@@ -1,17 +1,31 @@
-<h1>Welcome to the Yaroslav's hospital</h1>
+<h1 class="border-bottom border-dark">Welcome to the Yaroslav's hospital</h1>
+<div class="d-flex justify-content-around me-5">
 <% if current_user&.admin? %>
-  <h2>Logged in as admin</h2>
-  <h2>Admin</h2>
-  <p>Go to the admin page</p>
-  <%= link_to "Admin", admin_root_path %>
+  <section class="d-flex flex-column">
+    <h2>Logged in as admin</h2>
+    <h2>Admin</h2>
+    <p>Go to the admin page</p>
+    <div class="text-center">
+      <%= link_to "Admin", admin_root_path, class: "btn btn-primary nav-btn" %>
+    </div>
+  </section>
 <% else %>
-  <h2>Doctors</h2>
-  <p>Get list of our doctors by categories</p>
-  <%= link_to "Doctors", categories_path %>
+  <section class="d-flex flex-column">
+    <h2>Doctors</h2>
+    <p class="w-75 mx-auto">Get list of our doctors by categories</p>
+    <div class="text-center">
+      <%= link_to "Doctors", categories_path, class: "btn btn-primary nav-btn" %>
+    </div>
+  </section>
+
 
   <% if current_user.present? %>
-    <h2>Profile</h2>
-    <p>View your profile</p>
-    <%= link_to "Profile", user_path(current_user.id) %>
+    <section class="d-flex flex-column">
+      <h2>Profile</h2>
+      <p>View your profile</p>
+      <div class="text-center">
+        <%= link_to "Profile", user_path(current_user.id), class: "btn btn-primary nav-btn" %>
+      </div>
+    </section>
   <% end %>
 <% end %>

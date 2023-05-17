@@ -1,19 +1,21 @@
-<div>
-	<h1>Log In</h1>
+<h1>Log In</h1>
 
-	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-		<%= f.input :phone, required: true, autofocus: true,
-			input_html: { autocomplete: "phone", placeholder: "0123456789" }	%>
-		<%= f.input :password, required: true,
-			input_html: { autocomplete: "password" } %>
-		<% if devise_mapping.rememberable? %>
-			<div class="mb-4 flex">
-				<%= f.input :remember_me, as: :boolean, label: false %>
-				<%= f.label :remember_me %>
-			</div>
-		<% end %>
-		<%= f.button :submit, "Log in", class: "btn-primary" %>
-
-		<%= render "devise/shared/links" %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	<%= f.input :phone, required: true, autofocus: true,
+		wrapper_html: { class: "mb-2 d-flex justify-content-around form-div mx-auto" },
+    label_html: { class: "ms-0 me-auto" },
+    input_html: { autocomplete: "phone", placeholder: "0123456789", class: "ms-auto me-0" }	%>
+	<%= f.input :password, required: true,
+		wrapper_html: { class: "mb-2 d-flex justify-content-around form-div mx-auto" },
+    label_html: { class: "ms-0 me-auto" },
+    input_html: { autocomplete: "password", placeholder: "0123456789", class: "ms-auto me-0" } %>
+	<% if devise_mapping.rememberable? %>
+		<div class="mb-4 d-flex ps-0 pe-0 justify-content-center">
+			<%= f.label :remember_me, class: "me-2" %>
+			<%= f.input :remember_me, as: :boolean, label: false %>
+		</div>
 	<% end %>
-</div>
+	<%= f.button :submit, "Log in", class: "btn btn-primary nav-btn" %>
+
+	<%= render "devise/shared/links" %>
+<% end %>

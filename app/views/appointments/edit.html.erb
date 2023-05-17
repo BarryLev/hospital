@@ -1,4 +1,6 @@
 <%= simple_form_for @appointment, method: :patch do |f| %>
-  <%= f.text_area :recommendation, as: :text %>
-  <%= f.button :submit, "Submit" %>
+  <%= f.input :recommendation, as: :text,
+              wrapper_html: { class: "d-flex flex-column mb-2" },
+              input_html: { class: "w-25 mx-auto", height: "4" } %>
+  <%= f.button :submit, "Submit", class: "btn btn-primary nav-btn" %>
 <% end %>

@@ -18,7 +18,7 @@ class User < ApplicationRecord
   self.inheritance_column = :role
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :rememberable, :validatable
 
   validates :phone, presence: :true, format: /\A0\d{9}\z/
   validates_presence_of :name

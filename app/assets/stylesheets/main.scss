@@ -1,5 +1,15 @@
-$icon-size:  30px;
+$btn-size: 100px;
+$form-width: 350px;
+$icon-size: 30px;
 
 .home-icon {
-  font-size: $icon-size;
+  font-size:30px;
+}
+
+.nav-btn {
+  width: $btn-size;
+}
+
+.form-div {
+  width: $form-width;
 }
