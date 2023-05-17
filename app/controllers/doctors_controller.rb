@@ -18,6 +18,6 @@ class DoctorsController < ApplicationController
   end
 
   def resource
-      Doctor.find(params[:id])
+    Doctor.find(params[:id])
   end
 end
