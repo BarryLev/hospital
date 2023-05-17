@@ -13,7 +13,7 @@ module Hospital
 
     config.assets.enabled = true
 
-    config.factory_bot.definition_file_paths = ["spec/factories"]
+    # config.factory_bot.definition_file_paths = ["spec/factories"]
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
