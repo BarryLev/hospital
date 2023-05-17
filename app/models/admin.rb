@@ -15,6 +15,6 @@
 #  category_id            :bigint
 #
 class Admin < User
-  
+  validates_absence_of :category
 end
 

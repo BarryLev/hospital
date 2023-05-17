@@ -25,16 +25,6 @@ class User < ApplicationRecord
   validates :phone, presence: :true, format: /\A0\d{9}\z/
   validates_presence_of :name
 
-  # overrided methods email_required? and will_save_change_to_email?
-  # from devise to make phone as login
-  def email_required?
-    false
-  end
-
-  def will_save_change_to_email?
-    false
-  end
-
   def patient?
     role == Patient.name
   end
@@ -45,5 +35,15 @@ class User < ApplicationRecord
 
   def admin?
     role == Admin.name
+  end
+
+  # overrided methods email_required? and will_save_change_to_email?
+  # from devise to make phone as login
+  def email_required?
+    false
+  end
+
+  def will_save_change_to_email?
+    false
   end
 end

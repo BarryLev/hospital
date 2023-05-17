@@ -15,7 +15,7 @@
 #  category_id            :bigint
 #
 class Doctor < User
-  has_many :appointments, class_name: Appointment.name, foreign_key: :doctor_id
+  has_many :appointments, class_name: Appointment.name, foreign_key: :doctor_id, dependent: :destroy
   has_many :patients, class_name: Patient.name, through: :appointments
   
   belongs_to :category
