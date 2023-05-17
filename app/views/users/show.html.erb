@@ -1,12 +1,23 @@
-<section>
-  <h2><strong>Name:</strong> <%= @user.name %></h2>
+<div class="d-flex justify-content-around">
+  <section>
+    <h2><strong>Name:</strong> <%= @user.name %></h2>
 
-  <% if @user.patient? %>
-    <%= render "patient", patient: @user %>
-  <% elsif @user.doctor? %>
-    <%= render "doctor", doctor: @user %>
-  <% end %>
-</section>
-</section>
-  <%# Add photo %>
-</section>
+    <% if @user.patient? %>
+      <%= render "patient", patient: @user %>
+    <% elsif @user.doctor? %>
+      <%= render "doctor", doctor: @user %>
+    <% end %>
+  </section>
+
+  <section class="d-flex flex-column justify-content-center">
+    
+    <% if @user.avatar.attached? %>
+      <%= cl_image_tag @user.avatar.key, width: 400, height: 400, crop: "fill" %>
+    <% end %>
+
+    <% if @user == current_user %>
+      <%= link_to "Update photo", edit_user_path(@user), class: customize_button_if_avatar_attached(@user) %>
+    <% end %>    
+  </section>
+</div>
+

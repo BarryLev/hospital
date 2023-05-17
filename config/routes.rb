@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :categories, only: :index
-  resources :users, only: :show
+  resources :users
   resources :doctors
   resources :appointments, only: [:create, :update, :edit]
   resource :profile
-
 end

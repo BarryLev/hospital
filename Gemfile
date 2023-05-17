@@ -62,3 +62,5 @@ gem "bootstrap", "~> 5.2"
 gem "jquery-rails", "~> 4.5"
 
 gem "cssbundling-rails", "~> 1.1"
+
+gem "cloudinary", "~> 1.25"

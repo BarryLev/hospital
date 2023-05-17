@@ -1,0 +1,18 @@
+development:
+  cloud_name: driqbno1c
+  api_key: '786468678484589'
+  api_secret: "O6H_wejxZqEAeOUmu81877zhJ_4"
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: driqbno1c
+  api_key: '786468678484589'
+  api_secret: "O6H_wejxZqEAeOUmu81877zhJ_4"
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: driqbno1c
+  api_key: '786468678484589'
+  api_secret: "O6H_wejxZqEAeOUmu81877zhJ_4"
+  enhance_image_tag: true
+  static_file_support: false

@@ -20,6 +20,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
 
+  has_one_attached :avatar
+
   validates :phone, presence: :true, format: /\A0\d{9}\z/
   validates_presence_of :name
 

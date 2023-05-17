@@ -29,6 +29,6 @@ class Doctor < User
   def limit_active_appointments
     limit = 10
 
-    errors.add("Too many active appointments") if appointments.where(active: true).count > limit
+    errors.add(:appointments, "Too many active appointments") unless appointments.where(active: true).count < limit
   end
 end

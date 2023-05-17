@@ -10,10 +10,14 @@ class DoctorsController < ApplicationController
   private
 
   def collection
-    Doctor.where(category_id: params[:category_id])
+    if params[:category_id].present?
+      Doctor.where(category_id: params[:category_id])
+    else
+      Doctor.all
+    end
   end
 
   def resource
-    Doctor.find(params[:id])
+      Doctor.find(params[:id])
   end
 end

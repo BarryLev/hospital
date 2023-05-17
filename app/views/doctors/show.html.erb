@@ -13,7 +13,11 @@
       <%= link_to 'Back', doctors_path, class: "btn btn-danger" %>
     </div>
   </section>
-  <section>
-    <%# Add photo %>
+  <section class="d-flex flex-column justify-content-center">
+    
+    <% if @doctor.avatar.attached? %>
+      <%= cl_image_tag @user.avatar.key, width: 400, height: 400, crop: "fill" %>
+    <% end %>    
+
   </section>
 </div>
