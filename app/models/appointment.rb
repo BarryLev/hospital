@@ -21,10 +21,6 @@ class Appointment < ApplicationRecord
   private
 
   def change_active
-    if recommendation.present?
-      self.active = false
-    elsif
-      self.active = true
-    end
+    self.active = false if recommendation.present?
   end
 end

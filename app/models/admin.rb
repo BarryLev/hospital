@@ -17,4 +17,3 @@
 class Admin < User
   validates_absence_of :category
 end
-

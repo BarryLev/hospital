@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "Your avatar was updated successfully"
-    elsif
+    else
       redirect_back_or_to user_path(@user), alert: "Error occured while updating avatar"
     end
   end

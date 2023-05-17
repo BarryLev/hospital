@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "GiveRecommendations", type: :feature do
   describe "give recommendations to the patient" do
     let!(:patient) { create(:patient) }
-    
+
     let(:doctor) { create(:doctor) }
     let(:recommendation_text) { "Recommendation" }
 

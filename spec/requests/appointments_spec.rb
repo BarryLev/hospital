@@ -11,7 +11,7 @@ RSpec.describe "Appointments", type: :request do
     context "with valid doctor id" do
       it "creates a new appointment" do
         expect do
-          post appointments_path, params: {id: doctor.id}
+          post appointments_path, params: { id: doctor.id }
         end.to change(Appointment, :count).by(1)
 
         expect(response).to redirect_to(user_path(patient))
@@ -22,7 +22,7 @@ RSpec.describe "Appointments", type: :request do
     context "with invalid doctor id" do
       it "does not create an appointment" do
         expect do
-          post appointments_path, params: {id: invalid_doctor_id}
+          post appointments_path, params: { id: invalid_doctor_id }
         end.not_to change(Appointment, :count)
 
         expect(response).to redirect_to(root_path)
