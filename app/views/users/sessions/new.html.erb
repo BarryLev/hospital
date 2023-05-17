@@ -8,7 +8,7 @@
 	<%= f.input :password, required: true,
 		wrapper_html: { class: "mb-2 d-flex justify-content-around form-div mx-auto" },
     label_html: { class: "ms-0 me-auto" },
-    input_html: { autocomplete: "password", placeholder: "0123456789", class: "ms-auto me-0" } %>
+    input_html: { autocomplete: "password", class: "ms-auto me-0" } %>
 	<% if devise_mapping.rememberable? %>
 		<div class="mb-4 d-flex ps-0 pe-0 justify-content-center">
 			<%= f.label :remember_me, class: "me-2" %>
