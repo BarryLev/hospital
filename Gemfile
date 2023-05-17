@@ -28,6 +28,7 @@ gem "bootsnap", require: false
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails", "~> 6.0"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -39,6 +40,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "shoulda-matchers", '~> 5.0'
 end
 
 gem "devise", "~> 4.9"
@@ -54,3 +56,9 @@ gem "simple_form", "~> 5.2"
 gem "activeadmin", "~> 2.13"
 
 gem "sassc-rails", "~> 2.1"
+
+gem "bootstrap", "~> 5.2"
+
+gem "jquery-rails", "~> 4.5"
+
+gem "cssbundling-rails", "~> 1.1"

@@ -1,7 +1,6 @@
 <h1><%= @doctor.name %></h1>
 
-<p><strong>Specialty:</strong> <%= @doctor.category.name %></p>
+<p><strong>Category:</strong> <%= @doctor.category.name %></p>
 
-<%# cancancan, only patient can read %>
 <%= button_to 'Set an appointment', appointments_path(id: @doctor.id), method: :post if current_user.blank? || current_user.patient? %>
 <%= link_to 'Back', doctors_path %>

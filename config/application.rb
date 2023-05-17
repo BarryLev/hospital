@@ -11,7 +11,7 @@ module Hospital
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    # Configuration for the application, engines, and railties goes here.
+    config.factory_bot.definition_file_paths = ["spec/factories"]
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

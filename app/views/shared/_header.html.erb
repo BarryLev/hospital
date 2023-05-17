@@ -1,7 +1,9 @@
 <header>
-  <nav>
-    <div>
-      <%= link_to 'Home', root_path %>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <%= link_to root_path do %>
+        <i class="bi bi-calendar-plus home-icon"></i>
+      <% end %>
       <% if !user_signed_in? %>
         <div>
           <%= link_to 'Sign in', new_user_session_path %>

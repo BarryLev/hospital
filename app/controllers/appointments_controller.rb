@@ -3,10 +3,12 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if Appointment.create(patient_id: current_user.id, doctor_id: params[:id])
+    @appointment = Appointment.new(patient_id: current_user.id, doctor_id: params[:id])
+
+    if @appointment.save
       redirect_to user_path(current_user.id)
     else
-      render :show
+      redirect_to root_path
     end
   end
 
@@ -16,7 +18,6 @@ class AppointmentsController < ApplicationController
 
   def update
     @appointment = resource
-    binding.pry
 
     if @appointment.update(appointment_params)
       redirect_to user_path(@appointment.patient_id)
