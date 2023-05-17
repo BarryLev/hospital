@@ -14,11 +14,11 @@
   <%= f.input :password, required: true,
     wrapper_html: { class: "mb-2 d-flex justify-content-around form-div mx-auto" },
     label_html: { class: "ms-0 me-auto" },
-    input_html: { placeholder: "Name", class: "ms-auto me-0" } %>
+    input_html: { class: "ms-auto me-0" } %>
   <%= f.input :password_confirmation, label: "Password", required: true,
     wrapper_html: { class: "mb-2 d-flex justify-content-around form-div mx-auto" },
     label_html: { class: "ms-0 me-auto" },
-    input_html: { placeholder: "Name", class: "ms-auto me-0"  } %>
+    input_html: { class: "ms-auto me-0"  } %>
   <%= f.button :submit, "Sign Up", class: "btn btn-success nav-btn" %>
 
   <%= render "devise/shared/links" %>
